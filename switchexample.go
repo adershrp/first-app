@@ -43,4 +43,16 @@ func main() {
 	case numberValue%2 == 0:
 		fmt.Println("Even Number", numberValue)
 	}
+
+	i := 1
+	switch {
+	case i%2 != 0:
+		fmt.Println("Even", i)
+		fallthrough // irrespective of condition my next block wil be executed
+	case i%2 == 0:
+		fmt.Println("Odd", i)
+		fallthrough
+	default:
+		fmt.Println("Junk")
+	}
 }
