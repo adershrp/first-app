@@ -55,4 +55,22 @@ func main() {
 	default:
 		fmt.Println("Junk")
 	}
+
+	var z interface{} = [...]int{1, 2, 3}
+	//type switch
+	switch z.(type) {
+	case int:
+		fmt.Println(z, "is int type")
+		break
+		fmt.Println("This Line wont execute") // this line wont execute.
+	case float64:
+		fmt.Println(z, "is float32 type")
+	case string:
+		fmt.Println(z, "is string type")
+	case [3]int:
+		fmt.Println(z, "is [3]int type")
+	default:
+		fmt.Println(z, "is unknown type")
+
+	}
 }
