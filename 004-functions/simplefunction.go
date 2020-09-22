@@ -9,17 +9,59 @@ func main() {
 	name := "Go"
 	sayHello3(&greeting, &name)
 	fmt.Println(name)
-	sum(1, 2, 3, 4, 5, 6, 7)
+	s := sum(1, 2, 3, 4, 5, 6, 7)
+	fmt.Println("Sum", s)
+	t := sum2(1, 2, 3, 4, 5, 6, 7)
+	fmt.Println("Sum", *t)
+	u := sum3(3, 5, 6)
+	fmt.Println("Named Return", u)
+
+	c, err := divide(5, 0)
+	if nil != err {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("Division", c)
+
 }
 
-//vargs
-func sum(values ...int) {
+//multiple return
+//returning error
+func divide(a, b float32) (float32, error) {
+	if b == 0 {
+		return b, fmt.Errorf("Cannot divide by Zero")
+	}
+	return a / b, nil
+}
+
+// named return variable
+// specify name of the return variable, no need to init again or mention the attribute as part of return
+func sum3(values ...int) (result int) {
+	for _, value := range values {
+		result += value
+	}
+	return
+}
+
+//returning pointer instead of actual
+func sum2(values ...int) *int {
 	fmt.Println("Input values", values)
 	result := 0
 	for _, value := range values {
 		result += value
 	}
-	fmt.Println("Sum of values", result)
+	return &result
+}
+
+//vargs
+//returning value
+func sum(values ...int) int {
+	fmt.Println("Input values", values)
+	result := 0
+	for _, value := range values {
+		result += value
+	}
+	return result
 }
 
 // simple function with one arg
