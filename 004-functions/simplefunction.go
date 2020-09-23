@@ -16,13 +16,38 @@ func main() {
 	u := sum3(3, 5, 6)
 	fmt.Println("Named Return", u)
 
-	c, err := divide(5, 0)
+	c, err := divide(5, 1)
 	if nil != err {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println("Division", c)
 
+	add, sub, mul, div, err := calculator(10, 5)
+	if nil != err {
+		fmt.Println("Error", err)
+	}
+	fmt.Println(add, sub, mul, div)
+
+	add, sub, mul, div = calculatorNamed(100, 14)
+	fmt.Println(add, sub, mul, div)
+}
+
+//multiple return
+func calculatorNamed(a, b int) (add int, sub int, mul int, div int) {
+	add = a + b
+	sub = a - b
+	mul = a * b
+	div = a / b
+	return
+}
+
+//multiple return
+func calculator(a, b int) (int, int, int, int, error) {
+	if 0 == a || 0 == b {
+		return 0, 0, 0, 0, fmt.Errorf("Cannot accept Zero")
+	}
+	return (a + b), (a - b), (a * b), (a / b), nil
 }
 
 //multiple return
