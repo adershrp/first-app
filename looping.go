@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+
+	//for init;condition;post
 	//normal for loop
 	for i := 0; i < 5; i++ {
 		fmt.Println(i)
