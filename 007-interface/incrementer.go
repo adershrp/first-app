@@ -15,6 +15,7 @@ func main() {
 	}
 }
 
+//any other type has a method Count is also of a type counter
 type Counter interface {
 	Count() int
 }
