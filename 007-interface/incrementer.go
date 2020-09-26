@@ -1,33 +1,33 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	myInt := IntCounter(0)
-	myFloat := FlotCounter(0)
-	var intCounter Counter = &myInt
-	var floatCounter Counter = &myFloat
-	for i := 0; i < 10; i++ {
-		fmt.Println(intCounter.Count())
-		fmt.Println(floatCounter.Count())
-	}
+    myInt := IntCounter(0)
+    myFloat := FlotCounter(0)
+    var intCounter Counter = &myInt
+    var floatCounter Counter = &myFloat
+    for i := 0; i < 10; i++ {
+        fmt.Println(intCounter.Count())
+        fmt.Println(floatCounter.Count())
+    }
 }
 
-//any other type has a method Count is also of a type count
+// any other type has a method Count is also of a type count
 type Counter interface {
-	Count() int
+    Count() int
 }
 
 type IntCounter int
 type FlotCounter int
 
 func (ic *IntCounter) Count() int {
-	*ic++
-	return int(*ic)
+    *ic++
+    return int(*ic)
 }
 func (ic *FlotCounter) Count() int {
-	*ic--
-	return int(*ic)
+    *ic--
+    return int(*ic)
 }

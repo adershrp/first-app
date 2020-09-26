@@ -1,20 +1,20 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
 	a := incrementer()
 	b := incrementer()
-
+	
 	fmt.Println(a())
 	fmt.Println(a())
 	fmt.Println(b())
 	fmt.Println(a())
 	fmt.Println(a())
 	fmt.Println(a())
-
+	
 	fmt.Println(b())
 	fmt.Println(b())
 	fmt.Println(a())
